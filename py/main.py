@@ -17,11 +17,16 @@ def lab00():
     while True: 
         success, frame = cap.read()
 
+        k_size = (10,10)
+        blurred_frame = cv2.blur(frame, k_size)
+
         if not success:
             print("The image capture did not succeed. Is the camera OK?")
             break
 
-        cv2.imshow(window_title, frame)
+        #cv2.imshow(window_title, frame)
+        cv2.imshow(window_title, blurred_frame)
+
         delay_ms = 15
         key = cv2.waitKey(delay_ms)
 
